@@ -5,11 +5,11 @@ __pycache__/
 
 # Extensions
 *.csv
-*.xslx
+*.xlsx
+*.png
 
 # Folders
 models/
-data/
 
 # C extensions
 *.so

@@ -1,0 +1,1 @@
+En esta carpeta el usuario deberá cargar sus archivos. Las extensiones aceptadas son .xlsx y .csv
