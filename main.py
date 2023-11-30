@@ -8,7 +8,8 @@ import pandas as pd
 
 from fitter import DataFitter
 
-data = pd.read_csv('./src/data/P1.csv', delimiter=';')
+# data = pd.read_csv('./src/data/P1.csv', delimiter=';')
+data = pd.read_excel('./src/data/RBlindados.xlsx')
 cols_ignoradas = []
 label = input('Inserte un nombre simple con el que quiere nombrar el conjunto de datos: ')
 
