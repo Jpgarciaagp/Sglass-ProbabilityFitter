@@ -17,16 +17,16 @@ class DataFitter:
     def fitting(self):
         model_data = []
         for i in range(len(self.data.columns)-1):
-            dfit = distfit(distr=['norm', 'gamma', 'lognorm', 'expon', 'dweibull'], alpha=0.1) # Todas las distribuciones a probar. Todas las posibles se encuentran en la documentación de la librería dfit
+            dfit = distfit(distr=['norm', 'gamma', 'lognorm', 'expon', 'beta', 'dweibull'], alpha=0.2) # Todas las distribuciones a probar. Todas las posibles se encuentran en la documentación de la librería dfit
             selected_data = self.data.iloc[:, [i]].dropna().squeeze() # Esto sirve para convertir el dataframe en una serie
             selected_data = selected_data[selected_data > 0]
             print(selected_data.name)
             file_name = self.clean_paths(selected_data.name)            
             try:
                 data_array = selected_data.to_numpy()
-                if len(data_array) < 20: # No se consideran modelos con menos de 20 datos para generar las distribuciones
+                if len(data_array) < 15: # No se consideran modelos con menos de 20 datos para generar las distribuciones
                     raise ValueError
-                if len(np.unique(data_array)) < 20:
+                if len(np.unique(data_array)) < 15:
                     raise IndexError
                 dfit.fit_transform(data_array)
                 model_params = {'Label': self.label, 'Column': selected_data.name, 'CII_MIN': dfit.model['CII_min_alpha'], 'CII_MAX': dfit.model['CII_max_alpha']}
