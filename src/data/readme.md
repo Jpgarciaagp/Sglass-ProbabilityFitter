@@ -1,1 +1,1 @@
-En esta carpeta el usuario deberá cargar sus archivos. Las extensiones aceptadas son .xlsx y .csv
+In this folder, user must load their files. Accepted extensions are .xlsx and .csv
